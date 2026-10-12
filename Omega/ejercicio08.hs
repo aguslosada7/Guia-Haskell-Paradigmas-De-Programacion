@@ -1,13 +1,13 @@
 -- Implementar una función que obtenga los elementos en posiciones pares de una lista.
 
-contarElementos :: [Int] -> Int
-contarElementos [] = 0
-contarElementos (x:xs) = 1 + contarElementos xs
+{-
+Separa del tail los primeros dos elementos (x e y) y solo agrega el primero.
+Aclaración: Se empieza a contar desde el 0.
+-}
 
 elemEnPosPares :: [Int] -> [Int]
 elemEnPosPares [] = []
-elemEnPosPares (x:xs) = if even (contarElementos xs)
-then elemEnPosPares xs
-else x:elemEnPosPares xs
+elemEnPosPares [x] = [x]
+elemEnPosPares (x:y:xs) = x:elemEnPosPares xs
 
-main = print(elemEnPosPares [4, 2, 0, 7, 5, 5, 8])
+main = print(elemEnPosPares [4, 2, 1, 7, 5, 9]) -- [4, 1, 5]
